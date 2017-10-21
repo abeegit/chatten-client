@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import helpers  from "./login.helpers.js";
 
 export default class Login extends React.Component {
+  componentWillMount() {
+    Object.assign(window, helpers); //attaching functions to the window object
+  }
+
   render() {
     return (
       <div className="row justify-content-center">
@@ -22,8 +27,19 @@ export default class Login extends React.Component {
                    Remember me
               </label>
             </div>
-            <button type="submit" className="btn btn-light">Submit</button>
+            <div className="form-group">
+              <button type="submit" className="btn btn-info">Submit</button>
+            </div>
           </form>
+          <div className="row justify-content-center">
+            <div className="col-4">
+              <div className="g-signin2" data-onsuccess="onGoogleSignIn"></div>
+            </div>
+            <div className="col-4">
+              <div className="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+          </div>
+          <hr/>
           <div className="row justify-content-center">
             <div className="col-4">
               Not a member?
