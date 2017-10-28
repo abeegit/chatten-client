@@ -1,5 +1,5 @@
 export default {
-  onGoogleSignIn: function() {
+  onGoogleSignIn: () => {
     console.log("Signed In with google");
   }
 };

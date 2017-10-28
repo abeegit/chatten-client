@@ -3,14 +3,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import chattenLogo from "../../images/chatten-logo.png";
 import Login from "../Login/Login.jsx";
 import SignUp from "../SignUp/SignUp.jsx";
+import helpers from "./cover.helpers";
 
 export default class Cover extends React.Component {
   componentWillMount() {
-    //injecting scripts for components
-    const script = document.createElement("script");
-    script.src = "https://apis.google.com/js/platform.js";
-    script.async = true;
-    document.body.appendChild(script);
+    helpers.googleSignInClientInit();
   }
   
   render() {
